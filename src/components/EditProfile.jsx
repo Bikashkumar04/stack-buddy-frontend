@@ -142,7 +142,7 @@ const EditProfile = ({ user }) => {
                   value={about}
                   className="textarea textarea-bordered h-24"
                   placeholder="Bio"
-                  onClick={(e) => setAbout(e.target.value)}
+                  onChange={(e) => setAbout(e.target.value)}
                 ></textarea>
               </label>
               <div className="card-actions justify-center mt-4">
