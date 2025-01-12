@@ -56,13 +56,13 @@ Here's what makes DevTinder unique:
 
 **Frontend Setup:**
 
-1. Navigate to the frontend directory: `cd DevTinder-Fe`
+1. Navigate to the frontend directory: `cd DevTinder UI`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
 **Backend Setup:**
 
-1. Navigate to the backend directory: `cd DevTinder-Be`
+1. Navigate to the backend directory: `cd DevTinder`
 2. Install dependencies: `npm install`
 3. Create a `.env` file based on the `.env.example` file and provide the URI for your MongoDB instance.
 4. Start the backend server: `npm run dev`
