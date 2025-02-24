@@ -34,9 +34,11 @@ const Body = () => {
 
   return (
     <>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <html data-theme="dark">
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </html>
     </>
   );
 };
