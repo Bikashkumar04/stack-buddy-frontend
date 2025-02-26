@@ -8,12 +8,13 @@ import { useNavigate } from "react-router";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
+  const user = useSelector((store) => store.user);
   console.log(feed);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const getFeed = async () => {
-    if (feed) return;
+    if (user && feed) return;
     try {
       const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
