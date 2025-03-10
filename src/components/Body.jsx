@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate, useLocation } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
@@ -11,9 +11,10 @@ const Body = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userData = useSelector((store) => store.user);
+  const location = useLocation();
 
   const fetchUser = async () => {
-    if (!userData) {
+    if (!userData && !location.pathname.startsWith("/reset-password")) {
       try {
         const user = await axios.get(BASE_URL + "/profile/view", {
           withCredentials: true,

@@ -132,6 +132,14 @@ const Login = () => {
               />
             </label>
             <p className="text-red-500">{error}</p>
+            {isLoginForm && (
+              <p
+                className="text-right cursor-pointer text-cyan-400 underline"
+                onClick={() => navigate("/forget-password")}
+              >
+                Forget Password?
+              </p>
+            )}
             <div className="card-actions justify-center mt-4">
               <button
                 className="btn btn-primary"
