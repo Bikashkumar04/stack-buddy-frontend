@@ -30,7 +30,7 @@ const Connections = () => {
     return <h1 className="flex justify-center py-56">No Connections Found</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center pt-8 pb-72">
       <h1 className="text-2xl">Connections</h1>
       {connections.map((connection) => {
         const { firstName, lastName, about, gender, photoUrl, age } =
