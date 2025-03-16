@@ -43,7 +43,7 @@ const Requests = () => {
     return <h1 className="flex justify-center py-56">No pending requests</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center pt-8 pb-72">
       <h1 className="text-2xl">Connections Requests</h1>
       {requests.map((request) => {
         const { _id, firstName, lastName, about, gender, photoUrl, age } =
@@ -68,15 +68,15 @@ const Requests = () => {
               <p>{gender && age && gender + ", " + age}</p>
               <p>{about}</p>
             </div>
-            <div>
+            <div className="flex gap-4">
               <button
-                className="btn btn-primary mx-4"
+                className="btn btn-primary"
                 onClick={() => reviewRequest("rejected", _id)}
               >
                 Reject
               </button>
               <button
-                className="btn btn-secondary mx-4"
+                className="btn btn-secondary"
                 onClick={() => reviewRequest("accepted", _id)}
               >
                 Accept
