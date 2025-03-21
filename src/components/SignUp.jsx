@@ -99,7 +99,12 @@ const SignUp = () => {
       );
     } catch (error) {
       console.log(error);
-      dispatch({ type: "SET_ERROR", error: error.response.data });
+      let err = error.response.data;
+      if (err.includes("duplicate")) {
+        dispatch({ type: "SET_ERROR", error: "Email already exists" });
+      } else {
+        dispatch({ type: "SET_ERROR", error: error.response.data });
+      }
     }
   };
 
