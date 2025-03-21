@@ -8,9 +8,6 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [isLoginForm, setisLoginForm] = useState(true);
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,23 +25,6 @@ const Login = () => {
       console.log(res);
       dispatch(addUser(res.data));
       navigate("/feed");
-    } catch (error) {
-      if (error.response) setError(error?.response?.data);
-      else setError(error?.message);
-      console.log(error);
-    }
-  };
-
-  const handleSignup = async () => {
-    try {
-      const res = await axios.post(
-        BASE_URL + "/signup",
-        { firstName, lastName, emailId, password },
-        { withCredentials: true }
-      );
-      console.log(res);
-      dispatch(addUser(res.data.data));
-      navigate("/profile");
     } catch (error) {
       if (error.response) setError(error?.response?.data);
       else setError(error?.message);
@@ -77,42 +57,10 @@ const Login = () => {
         </div>
       )}
 
-      <div
-        className={`flex justify-center pt-4 ${
-          isLoginForm ? "pb-12" : "pb-20"
-        }`}
-      >
+      <div className="flex justify-center pt-4 pb-12">
         <div className="card bg-neutral w-96 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title justify-center">
-              {isLoginForm ? "Login Here!" : "Signup Here!"}
-            </h2>
-            {!isLoginForm && (
-              <>
-                <label className="form-control w-full max-w-xs">
-                  <div className="label">
-                    <span className="label-text">First Name</span>
-                  </div>
-                  <input
-                    type="text"
-                    value={firstName}
-                    className="input input-bordered w-full max-w-xs"
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </label>
-                <label className="form-control w-full max-w-xs">
-                  <div className="label">
-                    <span className="label-text">Last Name</span>
-                  </div>
-                  <input
-                    type="text"
-                    value={lastName}
-                    className="input input-bordered w-full max-w-xs"
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                </label>
-              </>
-            )}
+            <h2 className="card-title justify-center">Login Here!</h2>
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">Email ID</span>
@@ -136,27 +84,22 @@ const Login = () => {
               />
             </label>
             <p className="text-red-500">{error}</p>
-            {isLoginForm && (
-              <p
-                className="text-right cursor-pointer text-cyan-400 underline"
-                onClick={() => navigate("/forget-password")}
-              >
-                Forget Password?
-              </p>
-            )}
+            <p
+              className="text-right cursor-pointer text-cyan-400 underline"
+              onClick={() => navigate("/forget-password")}
+            >
+              Forget Password?
+            </p>
             <div className="card-actions justify-center mt-4">
-              <button
-                className="btn btn-primary"
-                onClick={isLoginForm ? handleLogin : handleSignup}
-              >
-                {isLoginForm ? "Login" : "Signup"}
+              <button className="btn btn-primary" onClick={handleLogin}>
+                Login
               </button>
             </div>
             <p
               className="m-auto cursor-pointer text-cyan-400 pt-1 underline"
-              onClick={() => setisLoginForm((value) => !value)}
+              onClick={() => navigate("/signup")}
             >
-              {isLoginForm ? "New User? Signup" : "Existing User? Login"}
+              New User? Signup
             </p>
           </div>
         </div>
