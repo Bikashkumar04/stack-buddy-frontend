@@ -78,3 +78,4 @@ Here's what makes DevTinder unique:
 ## Contributing
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
+# stack-buddy-frontend
